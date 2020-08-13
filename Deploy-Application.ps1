@@ -141,7 +141,7 @@ Try {
 		}
 
 		## <Perform Installation tasks here>
-		$exitCode = Execute-Process -Path "VC_redist.x86.exe" -Parameters "/install /quiet /norestart" -PassThru -WindowStyle "Hidden" -WaitForMsiExec
+		$exitCode = Execute-Process -Path "$dirFiles\VC_redist.x86.exe" -Parameters "/install /quiet /norestart" -PassThru -WindowStyle "Hidden" -WaitForMsiExec
 		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 
@@ -185,7 +185,7 @@ Try {
 		}
 
 		# <Perform Uninstallation tasks here>
-		$exitCode = Execute-Process -Path "VC_redist.x86.exe" -Parameters "/uninstall /quiet /norestart" -PassThru -WindowStyle "Hidden" -WaitForMsiExec
+		$exitCode = Execute-Process -Path "$dirFiles\VC_redist.x86.exe" -Parameters "/uninstall /quiet /norestart" -PassThru -WindowStyle "Hidden" -WaitForMsiExec
 		If (($exitCode.ExitCode -ne "0") -and ($mainExitCode -ne "3010")) { $mainExitCode = $exitCode.ExitCode }
 
 		##*===============================================
